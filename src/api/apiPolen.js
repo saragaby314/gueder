@@ -1,4 +1,4 @@
-const BASE_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality';
+const BASE_POLEN = 'https://air-quality-api.open-meteo.com/v1/air-quality';
 
 export async function fetchPolen(lat, lon) {
   const params = new URLSearchParams({
@@ -8,8 +8,8 @@ export async function fetchPolen(lat, lon) {
     forecast_days: 1
   });
 
-  console.log('URL completa:', `${BASE_URL}?${params}`);
-  const response = await fetch(`${BASE_URL}?${params}`);
+  console.log('URL completa:', `${BASE_POLEN}?${params}`);
+  const response = await fetch(`${BASE_POLEN}?${params}`);
   
   if (!response.ok) {
     throw new Error(`Error al hacer fetch en polen data: ${response.status}`);

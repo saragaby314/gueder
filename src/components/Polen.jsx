@@ -18,7 +18,6 @@ function Polen() {
         setLoading(false);
       }
     }
-
     loadPolen();
   }, []);
 
@@ -28,23 +27,26 @@ function Polen() {
   return (
     <section className="polen">
       <h2>Niveles de polen en Bilbao</h2>
-
+      <p className="polen-description">
+        Concentración de polen por tipo de planta (Europa - CAMS)
+      </p>
+      
       <table className="polen-table">
         <thead>
           <tr>
             <th>Hora</th>
-            <th>Aliso</th>
-            <th>Abedul</th>
-            <th>Hierba</th>
-            <th>Artemisa</th>
-            <th>Olivo</th>
-            <th>Ambrosía</th>
+            <th>Aliso (granos/m³)</th>
+            <th>Abedul (granos/m³)</th>
+            <th>Hierba (granos/m³)</th>
+            <th>Artemisa (granos/m³)</th>
+            <th>Olivo (granos/m³)</th>
+            <th>Ambrosía (granos/m³)</th>
           </tr>
         </thead>
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-              <td>
+              <td className="time">
                 {new Date(row.time).toLocaleTimeString('es-ES', {
                   hour: '2-digit',
                   minute: '2-digit',
