@@ -2,6 +2,7 @@ import { useGeolocation } from './hooks/useGeolocation'
 import CardColumna from './components/CardColumna'
 import Polen from './components/Polen'
 import Calidad from './components/Calidad'
+import Header from "./components/Header"
 import './App.css'
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Polen lat={coords.lat} lon={coords.lon} city={coords.city} />
       <Calidad lat={coords.lat} lon={coords.lon} />
     </div>
+    </>
   )
 }
 
