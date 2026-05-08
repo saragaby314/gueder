@@ -1,6 +1,20 @@
-const BASE_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality';
+const BASE_POLEN = 'https://air-quality-api.open-meteo.com/v1/air-quality';
 
-export async function fetchPolen(lat, lon) {
+export async function fetchPolenCurrent(lat, lon) {
+  const params = new URLSearchParams({
+    latitude: lat,
+    longitude: lon,
+    current: 'alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,olive_pollen,ragweed_pollen'
+  });
+
+  const response = await fetch(`${BASE_POLEN}?${params}`);
+  if (!response.ok) throw new Error(`Error: ${response.status}`);
+  
+  const data = await response.json();
+  return data.current;
+}
+
+export async function fetchPolenHourly(lat, lon) {
   const params = new URLSearchParams({
     latitude: lat,
     longitude: lon,
@@ -8,15 +22,25 @@ export async function fetchPolen(lat, lon) {
     forecast_days: 1
   });
 
-
-  console.log('URL completa:', `${BASE_URL}?${params}`);
-  const response = await fetch(`${BASE_URL}?${params}`);
+  const response = await fetch(`${BASE_POLEN}?${params}`);
+  if (!response.ok) throw new Error(`Error: ${response.status}`);
   
-  if (!response.ok) {
-    throw new Error(`Error fetching pollen data: ${response.status}`);
-  }
+  const data = await response.json();
+  return transformPolenData(data);
+}
 
-  return response.json();
+function transformPolenData(apiData) {
+  const { time, alder_pollen, birch_pollen, grass_pollen, mugwort_pollen, olive_pollen, ragweed_pollen } = apiData.hourly;
+  
+  return time.map((timestamp, index) => ({
+    time: timestamp,
+    alder: alder_pollen[index],
+    birch: birch_pollen[index],
+    grass: grass_pollen[index],
+    mugwort: mugwort_pollen[index],
+    olive: olive_pollen[index],
+    ragweed: ragweed_pollen[index]
+  }));
 }
 
 export function getPolen(value) {
