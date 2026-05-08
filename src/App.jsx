@@ -1,10 +1,17 @@
 import CardColumna from './components/CardColumna'
 import Polen from './components/Polen'
 import Calidad from './components/Calidad'
+import Header from "./components/Header"
 import './App.css'
 
 function App() {
   return (
+    <>
+    
+    <div>
+      <Header />
+    </div>
+
     <div>
       <h1>Güeder</h1>
         <section className="test-cards">
@@ -34,6 +41,7 @@ function App() {
       <Polen />
       <Calidad />
     </div>
+    </>
   )
 }
 
