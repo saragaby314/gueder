@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchPolenCurrent, fetchPolenHourly, getPolen } from '../api/apiPolen';
 
-function Polen() {
+function Polen({ lat = 43.263, lon = -2.935, city = 'Bilbao' }) {
   const [current, setCurrent] = useState(null);
   const [hourly, setHourly] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,8 +11,8 @@ function Polen() {
     async function loadAllPolen() {
       try {
         const [currentData, hourlyData] = await Promise.all([
-          fetchPolenCurrent(43.263, -2.935),
-          fetchPolenHourly(43.263, -2.935)
+          fetchPolenCurrent(lat, lon),
+          fetchPolenHourly(lat, lon)
         ]);
         
         setCurrent(currentData);
@@ -24,7 +24,7 @@ function Polen() {
       }
     }
     loadAllPolen();
-  }, []);
+  }, [lat, lon]);
 
   if (loading) return <p>Cargando polen…</p>;
   if (error) return <p>Error: {error}</p>;
@@ -32,7 +32,7 @@ function Polen() {
   return (
     <div className="polen-container">
       <section className="polen-actual">
-        <h2>Polen ahora en Bilbao</h2>
+        <h2>Polen ahora en {city}</h2>
         <p className="polen-time">
           {new Date(current.time).toLocaleString('es-ES', {
             day: 'numeric',
