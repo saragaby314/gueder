@@ -1,18 +1,17 @@
 import { useState } from 'react'
 import Polen from './components/Polen'
 import './App.css'
-import Calidad from './components/Calidad.jsx'
+import BigCard from './components/BigcardTemerature.jsx';
 
 function App() {
-  return (
-    <div>
-      <Polen />
-    </div>,
+  const location = { lat: 43.2627, lon: -2.9253 };
 
-    <div>
-      <Calidad />
+  return (
+    <div className="app-layout">
+
+      <BigCard lat={location.lat} lon={location.lon} />
     </div>
-  )
+  );
 }
 
 export default App
