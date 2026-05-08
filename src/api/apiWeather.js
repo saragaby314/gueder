@@ -1,4 +1,28 @@
 const WEATHER_API = "https://api.open-meteo.com/v1/forecast"
+// Transformación de datos:
+function __transposeData(data) {
+    if (!data || !data.time) return data;
+    const { time, ...rest } = data;
+    return time.map((t, index) => {
+        const obj = { time: t };
+        Object.keys(rest).forEach(key => {
+            obj[key] = rest[key][index];
+        });
+        return obj;
+    });
+}
+
+function __transformData(data) {
+    if (!data) return data;
+    Object.keys(data).forEach(key => {
+        // Corregido: usamos .includes() para verificar si la sección debe transponerse
+        if (['hourly', 'daily'].includes(key)) {
+            data[key] = __transposeData(data[key]);
+        }
+    });
+    return data;
+}
+
 
 async function currentWeather(lat, lon) {
     const currentUrl = `${WEATHER_API}?latitude=${lat}&longitude=${lon}&current=temperature_2m,precipitation,weather_code`
@@ -8,7 +32,7 @@ async function currentWeather(lat, lon) {
         );
 
         const data = await response.json();
-        return data;
+        return __transformData(data);;
 
     } catch (error) {
         console.error('Error en la petición:', error);
@@ -23,10 +47,10 @@ async function hourlyWeather(lat, lon) {
         );
 
         const data = await response.json();
-        return data;
-        
+        return __transformData(data);;
+
     } catch (error) {
-         console.error('Error en la petición:', error);       
+        console.error('Error en la petición:', error);
     }
 }
 
@@ -38,10 +62,10 @@ async function dailyWeather(lat, lon) {
         );
 
         const data = await response.json();
-        return data;
-        
+        return __transformData(data);;
+
     } catch (error) {
-         console.error('Error en la petición:', error);       
+        console.error('Error en la petición:', error);
     }
 }
 

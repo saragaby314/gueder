@@ -26,7 +26,6 @@ const Loading = () => <div>Cargando temperatura...</div>;
 const ErrorMessage = () => <div>No hay datos disponibles</div>;
 
 
-
 const Temperature = ({ lat, lon }) => {
     const { data, loading } = useFetchWeather(lat, lon);
 
