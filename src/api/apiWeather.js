@@ -32,7 +32,7 @@ async function currentWeather(lat, lon) {
         );
 
         const data = await response.json();
-        return __transformData(data);;
+        return __transformData(data);
 
     } catch (error) {
         console.error('Error en la petición:', error);
@@ -42,12 +42,9 @@ async function currentWeather(lat, lon) {
 async function hourlyWeather(lat, lon) {
     const hourlyUrl = `${WEATHER_API}?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,precipitation_probability,weather_code,precipitation`
     try {
-        const response = await fetch(
-            hourlyUrl
-        );
-
+        const response = await fetch(hourlyUrl);
         const data = await response.json();
-        return __transformData(data);;
+        return __transformData(data);
 
     } catch (error) {
         console.error('Error en la petición:', error);
@@ -62,11 +59,11 @@ async function dailyWeather(lat, lon) {
         );
 
         const data = await response.json();
-        return __transformData(data);;
+        return __transformData(data);
 
     } catch (error) {
         console.error('Error en la petición:', error);
     }
 }
 
-export { currentWeather, hourlyWeather, dailyWeather }
+export { currentWeather, hourlyWeather, dailyWeather, __transformData }
