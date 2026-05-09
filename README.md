@@ -1,12 +1,6 @@
 # Güeder 
 
-**Aplicación web del tiempo con información sobre temperatura, polen y calidad del aire.**
-
----
-
-## Descripción
-
-Güeder es una aplicación web (SPA) desarrollada en React que proporciona información meteorológica completa, niveles de polen y calidad del aire para cualquier ubicación geográfica.
+Es una aplicación web (SPA) desarrollada en React que proporciona información meteorológica completa, niveles de polen y calidad del aire para cualquier ubicación geográfica.
 
 La aplicación detecta automáticamente la ubicación del usuario mediante geolocalización del navegador y persiste sus preferencias en localStorage, permitiendo una experiencia fluida sin necesidad de registro.
 
