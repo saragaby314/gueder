@@ -11,7 +11,7 @@ export function useGeolocation() {
     const saved = localStorage.getItem('gueder_location');
     return saved ? JSON.parse(saved) : DEFAULT_COORDS;
   });
-  
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -27,11 +27,11 @@ export function useGeolocation() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const newCoords = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-          city: 'Tu ubicación'
+          lat: DEFAULT_COORDS.lat ?? position.coords.latitude,
+          lon: DEFAULT_COORDS.lon ?? position.coords.longitude,
+          city: DEFAULT_COORDS.city
         };
-        
+
         console.log('Ubicación obtenida:', newCoords);
         setCoords(newCoords);
         localStorage.setItem('gueder_location', JSON.stringify(newCoords));
@@ -41,9 +41,9 @@ export function useGeolocation() {
 
       (err) => {
         console.error('Error de geolocalización:', err);
-        
+
         let errorMessage = 'No se pudo obtener tu ubicación';
-        
+
         if (err.code === 1) {
           errorMessage = 'Debes dar permiso de ubicación en tu navegador junto a la URL';
         } else if (err.code === 2) {
@@ -51,7 +51,7 @@ export function useGeolocation() {
         } else if (err.code === 3) {
           errorMessage = 'Tiempo de espera agotado';
         }
-        
+
         setError(errorMessage);
         setLoading(false);
       },
@@ -70,11 +70,11 @@ export function useGeolocation() {
     setError(null);
   };
 
-  return { 
-    coords, 
-    loading, 
-    error, 
-    getCurrentLocation, 
-    resetToDefault 
+  return {
+    coords,
+    loading,
+    error,
+    getCurrentLocation,
+    resetToDefault
   };
 }
