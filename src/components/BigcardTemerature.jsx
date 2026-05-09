@@ -4,7 +4,7 @@ import DateDisplay from './DateDisplay.jsx';
 import Temperature from './Temperature.jsx';
 import WeatherIcon from './WeatherIcon.jsx';
 
-const BigCard = ({ lat, lon }) => {
+const BigCard = ({ lat, lon, children }) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -41,6 +41,8 @@ const BigCard = ({ lat, lon }) => {
             <div className="layout-right">
                 <DateDisplay apiDate={data.current.time} />
             </div>
+
+            {children}
         </div>
     );
 };
