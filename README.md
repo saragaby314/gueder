@@ -296,14 +296,14 @@ Luis Alonso, Jon Aldekoa, Frank Rocha y Saray Guillen.
 
 ### Conceptos de React aplicados
 
-- ✅ **Custom Hooks** (`useGeolocation`) - Lógica reutilizable de geolocalización
-- ✅ **useState** - Gestión de estado local (coords, loading, error, data)
-- ✅ **useEffect** - Efectos secundarios y llamadas a APIs con dependencias
-- ✅ **Props** - Comunicación entre componentes padre-hijo
-- ✅ **Composición de componentes** - Arquitectura modular (BigCard contiene WeatherIcon, Temperature, DateDisplay)
-- ✅ **Renderizado condicional** - Manejo de estados de carga y error
-- ✅ **Event handlers** - onClick para botones de ubicación
-- ✅ **Children prop** - Composición flexible en BigCard
+- **Custom Hooks** (`useGeolocation`) - Lógica reutilizable de geolocalización
+- **useState** - Gestión de estado local (coords, loading, error, data)
+- **useEffect** - Efectos secundarios y llamadas a APIs con dependencias
+- **Props** - Comunicación entre componentes padre-hijo
+- **Composición de componentes** - Arquitectura modular (BigCard contiene WeatherIcon, Temperature, DateDisplay)
+- **Renderizado condicional** - Manejo de estados de carga y error
+- **Event handlers** - onClick para botones de ubicación
+- **Children prop** - Composición flexible en BigCard
 
 ### Ejemplo de Custom Hook
 
@@ -335,23 +335,23 @@ export function useGeolocation() {
 
 ### Buenas prácticas implementadas
 
-- ✅ Separación de concerns (api, components, hooks, utils)
-- ✅ Nombres descriptivos de variables y funciones
-- ✅ Manejo de errores con try-catch
-- ✅ Valores por defecto en props (`{ lat = 43.263, lon = -2.935 }`)
-- ✅ Dependencias correctas en useEffect (`[lat, lon]`)
-- ✅ Componentes pequeños y reutilizables
-- ✅ Funciones helper en utilidades separadas
-- ✅ Transformación de datos de API en funciones puras
+- Separación de concerns (api, components, hooks, utils)
+- Nombres descriptivos de variables y funciones
+- Manejo de errores con try-catch
+- Valores por defecto en props (`{ lat = 43.263, lon = -2.935 }`)
+- Dependencias correctas en useEffect (`[lat, lon]`)
+- Componentes pequeños y reutilizables
+- Funciones helper en utilidades separadas
+- Transformación de datos de API en funciones puras
 
 ### Trabajo en equipo
 
-- 🤝 División de tareas por funcionalidad (APIs)
-- 🤝 Code reviews entre compañeros mediante Pull Requests
-- 🤝 Comunicación constante vía Discord
-- 🤝 Resolución colaborativa de conflictos de merge
-- 🤝 Documentación compartida (README, MEMORIA)
-- 🤝 Uso de Jira para seguimiento de tareas
+- División de tareas por funcionalidad (APIs)
+- Code reviews entre compañeros mediante Pull Requests
+- Comunicación constante vía Discord
+- Resolución colaborativa de conflictos de merge
+- Documentación compartida (README, MEMORIA)
+- Uso de Jira para seguimiento de tareas
 
 ---
 
