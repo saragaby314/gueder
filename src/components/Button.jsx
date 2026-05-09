@@ -1,7 +1,7 @@
-function Button({className, functionClick, children}) {
+function Button({ className, onClick, children }) {
     return (
         <>
-            <button onClick={functionClick} className={className}>
+            <button onClick={onClick} className={className}>
                 {children}
             </button>
         </>
