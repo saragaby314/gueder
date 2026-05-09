@@ -1,16 +1,13 @@
 import Logo from "./Logo"
-import Button from "./Button"
+import Button from "./Button";
 
 function Header() {
-
     return (
         <>
-            <Logo className="rojo" /> 
-            <Button className="rojo">Tiempo</Button>
-            <Button className="verde">Polen</Button>
-            <Button>Aire</Button>
-        </>)
-
+            <Logo />
+            <Button></Button>
+        </>
+    )
 }
 
 export default Header;
