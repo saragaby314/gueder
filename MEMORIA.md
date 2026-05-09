@@ -10,7 +10,7 @@ El proyecto se desarrolló en aproximadamente una semana por un equipo de cuatro
 
 ---
 
-## Objetivos del Proyecto
+## Objetivos
 
 1. Desarrollar una **Single Page Application (SPA)** con React
 2. Consumir **APIs REST** para obtener datos en tiempo real
@@ -119,7 +119,7 @@ const coords = saved ? JSON.parse(saved) : DEFAULT_COORDS;
 
 ---
 
-### Mapeo de Códigos WMO
+### Mapeo de Códigos 
 
 **Decisión:** Crear un archivo de utilidades con el mapeo completo
 
