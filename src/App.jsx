@@ -2,12 +2,12 @@ import { useGeolocation } from './hooks/useGeolocation'
 import CardColumna from './components/CardColumna'
 import Polen from './components/Polen'
 import Calidad from './components/Calidad'
+import Header from "./components/Header"
 import './App.css'
 import BigCard from './components/BigcardTemerature.jsx'
 
 function App() {
-  // 1. LLAMAMOS AL HOOK para obtener las coordenadas (trae Bilbao por defecto)
-  const { coords, loading, error, getCurrentLocation } = useGeolocation();
+  const { coords, loading, error, getCurrentLocation, resetToDefault } = useGeolocation();
 
   return (
     <div className="app-main">
@@ -34,8 +34,8 @@ function App() {
         </div>
       </section>
 
-      <Polen />
-      <Calidad />
+      <Polen lat={coords.lat} lon={coords.lon} city={coords.city} />
+      <Calidad lat={coords.lat} lon={coords.lon} />
     </div>
   )
 }
