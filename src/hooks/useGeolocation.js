@@ -32,7 +32,6 @@ export function useGeolocation() {
           city: DEFAULT_COORDS.city
         };
 
-        console.log('Ubicación obtenida:', newCoords);
         setCoords(newCoords);
         localStorage.setItem('gueder_location', JSON.stringify(newCoords));
         setLoading(false);
