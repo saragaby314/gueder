@@ -1,16 +1,20 @@
-import { getWeatherInfo, iconEmojis } from '../utils/weatherMapping.js';
+import { getWeatherInfo, getWeatherIconUrl } from '../utils/weatherMapping.js';
 
 const WeatherIcon = ({ code }) => {
     const info = getWeatherInfo(code);
 
-    const emoji = iconEmojis[info.icon] || iconEmojis['UNKNOWN'];
+    const iconUrl = getWeatherIconUrl(info.icon);
 
     return (
-        <div className="weather-icon-container">
-            <span className="weather-emoji" title={info.label}>
-                {emoji}
-            </span>
-            <p className="weather-label">{info.label}</p>
+        <div className="weather-icon-container" style={{ textAlign: 'left' }}>
+            <img
+                src={iconUrl}
+                alt={info.label}
+                style={{ width: '64px', height: '64px' }}
+            />
+            <p className="weather-label" style={{ margin: 0, fontSize: '0.9rem' }}>
+                {info.label}
+            </p>
         </div>
     );
 };
