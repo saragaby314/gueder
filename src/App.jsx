@@ -4,6 +4,7 @@ import Polen from './components/Polen'
 import Calidad from './components/Calidad'
 import Header from "./components/Header"
 import './App.css'
+import BigCard from './components/BigcardTemerature.jsx'
 
 function App() {
   const { coords, loading, error, getCurrentLocation, resetToDefault } = useGeolocation();

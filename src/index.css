@@ -77,20 +77,24 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -108,4 +112,52 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+.big-card-container {
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.big-card-container {
+  display: flex;
+  justify-content: space-between;
+  /* Separa los 3 bloques */
+  align-items: center;
+  /* Los centra verticalmente */
+  padding: 2rem;
+  border-radius: 20px;
+  min-width: 500px;
+}
+
+.layout-left,
+.layout-center,
+.layout-right {
+  flex: 1;
+  /* Todos ocupan el mismo ancho */
+}
+
+.layout-left {
+  text-align: left;
+}
+
+.layout-center {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.layout-right {
+  text-align: right;
+}
+
+.day-name {
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 0;
 }
