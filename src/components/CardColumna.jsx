@@ -8,15 +8,15 @@ function CardColumna({ hora, temperatura, weatherCode, humedad }) {
     <div className="card-columna">
       <p className="hora">{hora}</p>
       <div className="icono">
-        <img 
-          src={iconUrl} 
+        <img
+          src={iconUrl}
           alt={weatherInfo.label}
           title={weatherInfo.label}
         />
       </div>
       <p className="temperatura">{temperatura}°C</p>
       {humedad !== undefined && (
-        <p className="humedad">⌄{humedad}%</p>
+        <p className="humedad">{humedad}%</p>
       )}
     </div>
   );
