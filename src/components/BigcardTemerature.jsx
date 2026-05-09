@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { currentWeather } from '../api/apiWeather.js';
 import DateDisplay from './DateDisplay.jsx';
 import Temperature from './Temperature.jsx';
-
+import WeatherIcon from './WeatherIcon.jsx';
 
 const BigCard = ({ lat, lon }) => {
     const [data, setData] = useState(null);
@@ -27,12 +27,10 @@ const BigCard = ({ lat, lon }) => {
 
     return (
         <div className="big-card-container">
-            {/* IZQUIERDA: Imagen basada en el código de clima */}
-            {/*<div className="layout-left">
+            <div className="layout-left">
                 <WeatherIcon code={data.current.weather_code} />
-            </div>*/}
+            </div>
 
-            {/* CENTRO: La temperatura actual */}
             <div className="layout-center">
                 <Temperature
                     valor={data.current.temperature_2m}
@@ -40,7 +38,6 @@ const BigCard = ({ lat, lon }) => {
                 />
             </div>
 
-            {/* DERECHA: La fecha formateada */}
             <div className="layout-right">
                 <DateDisplay apiDate={data.current.time} />
             </div>

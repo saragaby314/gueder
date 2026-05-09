@@ -38,10 +38,7 @@ function App() {
       <Calidad />
     </div>*/
     <div className="app-container">
-
-      {/* Solo llamas a BigCard y él se encarga del resto */}
       <BigCard lat={location.lat} lon={location.lon} />
-
     </div>
 
   );
