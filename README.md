@@ -2,8 +2,6 @@
 
 **Aplicación web del tiempo con información sobre temperatura, polen y calidad del aire.**
 
-Proyecto desarrollado durante el Bootcamp Full Stack de **The Bridge** (Mayo 2026)
-
 ---
 
 ## Descripción
