@@ -18,7 +18,7 @@ function App() {
       <Header />
       <h1>Güeder</h1>
 
-      {/* 2. BOTÓN PARA ACTUALIZAR (Opcional pero recomendado) */}
+      {/* 2. BOTÓN PARA ACTUALIZAR  */}
       <button onClick={getCurrentLocation} className="gps-button">
         {loading ? 'Localizando...' : 'Usar mi ubicación'}
       </button>
