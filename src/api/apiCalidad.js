@@ -7,7 +7,6 @@ export async function fetchCalidad(lat, lon) {
         forecast_days: 1
     });
 
-    console.log('URL completa:', `${calidadAire}?${params}`);
     const response = await fetch(`${calidadAire}?${params}`);
 
     if (!response.ok) {
