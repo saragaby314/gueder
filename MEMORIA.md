@@ -1,4 +1,4 @@
-# Memoria del Proyecto Güeder
+# Güeder
 
 ## Resumen 
 
