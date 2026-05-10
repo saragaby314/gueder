@@ -280,17 +280,14 @@ Luis Alonso, Jon Aldekoa, Frank Rocha y Saray Guillen.
 
 ---
 
-### Tareas completadas (Jira - Sprint 0)
+### División de Tareas
 
-- [x] **GUEDER-1:** Análisis del proyecto
-- [x] **GUEDER-2:** Estructura de archivos
-- [x] **GUEDER-16:** Diseño UX-UI de la aplicación
-- [x] **GUEDER-17:** HEADER: Logo y Botón
-- [x] **GUEDER-18:** CARD-GRANDE: Mostrar Icono, Localización y Fecha/Hora
-- [x] **GUEDER-19:** CARD-ALARGADA-FILA: Mostrar las Cards Columna
-- [x] **GUEDER-20:** CARD-COLUMNA: Mostrar Hora, Ícono, Temperatura y Humedad
-- [x] **GUEDER-21:** LocalStorage para la geolocalización
-- [x] **GUEDER-22:** README y MEMORIA
+| Miembro | Ramas Git | Responsabilidad |
+|---------|-----------|-----------------|
+| Luis Alonso | HEADER, STYLES | Header, botones, iconos, maquetación y diseño UX/UI con Adobe Photoshop e Illustrator |
+| Jon Aldekoa | API-TIEMPO, CARD-ALARGADA-FILA | API meteorológica, BigCard, CardAlargada |
+| Frank Rocha | API-CALIDAD | API y componente de calidad del aire |
+| Saray Guillen | API-POLEN, CARD-COLUMNA, docs | Polen, CardColumna, Geolocalización, Documentación |
 
 ## Aprendizajes
 
