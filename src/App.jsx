@@ -19,7 +19,7 @@ function App() {
         <Header />
       </header>
 
-      <h1>Anticípate al clima</h1>
+      <h1>Anticípate al tiempo</h1>
 
       {/* 1. PASAMOS LAS COORDENADAS A BIGCARD */}
       {/* Usamos coords.lat y coords.lon que vienen del hook */}
