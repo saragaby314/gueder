@@ -360,7 +360,7 @@ export function useGeolocation() {
 - **Jira:** Backlog y seguimiento de tareas
 - **Discord:** Comunicación del equipo
 - **GitHub:** Repositorio y control de versiones
-- **Adobe Photoshop y Adobe Illustrator:** Maquetación y diseño
+- **Adobe Photoshop:** Maquetación y diseño
 
 
 
