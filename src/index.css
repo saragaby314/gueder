@@ -1,4 +1,545 @@
+/* =============== IMPORTED FONTS =============== */
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap');
+
+@font-face {
+  font-family: 'optien';
+  src: url('../src/assets/fonts/optien.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* =============== VARIABLES =============== */
+
 :root {
+  --header-text: "Varela Round", sans-serif;
+  --main-text: "Montserrat", sans-serif;
+  --temperature-text: 'optien', sans-serif;
+  --min-max-text: "Cascadia Mono", sans-serif;
+  --white: #fefefe;
+  --black: #222222;
+  --grey: #aaaaaa;
+  --dark-grey: #777777;
+  --light-grey: #cccccc;
+  --orange: #cf7500;
+  --light-orange-1: #fec57a;
+  --light-orange-2: #f7b155;
+
+}
+
+/* =============== GLOBAL STYLES =============== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--main-text);
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.app-main {
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--header-text);
+  color: var(--orange);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.8rem;
+  text-align: center;
+}
+
+section {
+  width: 100%;
+  padding: 1rem;
+  border: 0.3rem solid var(--grey);
+  border-radius: 2.5rem;
+}
+
+/* =============== DARK MODE STYLES =============== */
+
+.dark-mode {
+  background: var(--black);
+
+  .logo-gueder {
+    background-image: url(../src/assets/gueder-dark-logo.svg);
+    z-index: 100;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--light-orange-2);
+  }
+
+  nav {
+    border: 0.2rem solid var(--light-orange-2);
+
+    button {
+      color: var(--light-orange-1);
+
+      &:hover {
+        color: var(--white);
+      }
+
+      &::after,
+      &:nth-of-type(4)::before {
+        background: linear-gradient(to bottom, transparent 0%, transparent 20%, var(--light-orange-2) 20%, var(--light-orange-2) 80%, transparent 80%, transparent 100%);
+      }
+    }
+  }
+
+  section {
+    border: 0.3rem solid var(--light-orange-2);
+  }
+
+  .weather-container {
+    color: var(--white);
+
+    .temp-box,
+    .day-name {
+      color: var(--light-orange-2);
+    }
+
+    .column-card p.temperature {
+      color: var(--light-orange-1)!important;
+    }
+  }
+}
+
+.pollen-container {
+  .pollen-time {
+    color: var(--white);
+  }
+
+  .pollen-table {
+
+    tr {
+      color: var(--white) !important;
+
+      &:nth-child(odd) {
+        background: var(--dark-grey)!important;
+      }
+
+      &:nth-child(even) {
+        background: var(--black)!important;
+      }
+    }
+
+    thead tr {
+        &:first-of-type {
+          color: var(--black)!important;
+          background: var(--light-orange-2)!important;
+        }
+      }
+  }
+}
+
+/* =============== HEADER STYLES =============== */
+
+header div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .logo-gueder {
+    width: 15rem;
+    height: 3.25rem;
+    background-image: url(../src/assets/gueder-light-logo.svg);
+    background-size: cover;
+  }
+
+  .checkbox-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    input {
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .checkmark {
+      position: relative;
+      display: block;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 0.15rem solid var(--orange);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0.35rem;
+        left: 0.35rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-image: url(../src/assets/moon.svg);
+        background-size: cover;
+        transition: all 0.3s ease;
+
+      }
+    }
+
+    input:checked+.checkmark {
+      &::before {
+        background-image: url(../src/assets/sun.svg);
+      }
+
+      &.checkmark {
+        border: 0.15rem solid var(--light-orange-2);
+      }
+    }
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: fit-content;
+  margin: 0 auto 2rem;
+  padding: 0.2rem 1.2rem;
+  border: 0.2rem solid var(--grey);
+  border-radius: 10rem;
+
+  button {
+    position: relative;
+    padding: 1rem 2rem 1rem 1rem;
+    border: none;
+    font-size: 1rem;
+    color: var(--dark-grey);
+    text-transform: uppercase;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:last-of-type {
+      padding-right: 1rem;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: -0.3rem;
+      width: 0.2rem;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 0%, transparent 20%, var(--grey) 20%, var(--grey) 80%, transparent 80%, transparent 100%);
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      color: var(--orange);
+      font-weight: 500;
+
+      &::after {
+        transform: translateX(-0.6rem) scale(calc(1 / 1.2));
+      }
+    }
+
+    &:nth-of-type(3)::after,
+    &:nth-of-type(4)::after {
+      background: transparent;
+    }
+
+    &:nth-of-type(4)::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: -1.3rem;
+      width: 0.2rem;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 0%, transparent 20%, var(--grey) 20%, var(--grey) 80%, transparent 80%, transparent 100%);
+      transition: all 0.3s ease;
+    }
+
+    &:hover::before {
+      transform: translateX(0.95rem) scale(calc(1 / 1.2));
+    }
+  }
+}
+
+/* =============== MAIN WEATHER CONTAINER =============== */
+
+.weather-container {
+  >div {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 12rem;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+  }
+
+  >div:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .layout-left {
+
+      .weather-icon-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          width: 10rem;
+        }
+
+        p {
+          margin: 0;
+          font-size: 1.4rem;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .layout-center {
+      padding-left: 1rem;
+      margin-right: auto;
+      font-family: var(--temperature-text);
+      font-size: 5rem;
+    }
+
+    .layout-right {
+      font-size: 1.6rem;
+      text-align: right;
+
+      p {
+        margin: 0;
+        padding: 0.2rem;
+      }
+
+      .day-name {
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .full-date {
+        font-weight: 300;
+      }
+    }
+  }
+
+  >div:nth-of-type(2) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    .column-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 5rem;
+      }
+
+      p {
+        margin: 0;
+
+        &.hour {
+          font-size: 1.2rem;
+        }
+
+        &.temperature {
+          font-family: var(--temperature-text);
+          font-size: 1.5rem;
+          color: var(--dark-grey);
+          letter-spacing: 0.1rem;
+        }
+
+        &.humidity {
+          position: relative;
+          left: 0.5rem;
+
+          &::before {
+            position: absolute;
+            content: '';
+            left: -1rem;
+            top: 0.2rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background-image: url(./assets/drop.svg);
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =============== MAIN POLLEN CONTAINER =============== */
+
+.pollen-container {
+
+  .current-pollen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+
+    h2 {
+      width: 65%;
+      padding-left: 1rem;
+      text-align: left;
+
+    }
+
+    h2~p {
+      width: 35%;
+      padding-right: 1rem;
+      font-size: 1.2rem;
+      text-align: right;
+    }
+  }
+
+  .pollen-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 80%;
+    padding: 0 1rem;
+    margin: 2rem 0 4rem;
+
+    .pollen-card {
+      width: 31%;
+      text-align: center;
+
+      h3 {
+        color: var(--black);
+      }
+
+      &:nth-child(odd) {
+        background: var(--light-orange-1);
+      }
+
+      &:nth-child(even) {
+        background: var(--light-orange-2);
+      }
+    }
+  }
+
+  .pollen-forecast {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    .pollen-table {
+      font-size: 0.9rem;
+
+      th,
+      td {
+        padding: 0.4rem 0.6rem;
+      }
+
+      tr {
+        color: var(--black);
+
+        &:nth-child(odd) {
+          background: var(--white);
+
+          border-radius: 1.5rem;
+        }
+
+        &:nth-child(even) {
+          background: var(--light-grey);
+          border-radius: 1.5rem;
+        }
+      }
+
+      thead tr {
+        &:first-of-type {
+          background: var(--light-orange-2);
+        }
+      }
+    }
+  }
+}
+
+/* =============== MAIN AIR QUALITY CONTAINER =============== */
+
+.content-area {
+  h2 {
+    text-align: center;
+  }
+
+  .quality-table {
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--black);
+
+    th,
+    td {
+      padding: 0.4rem 0.6rem;
+      text-align: center;
+    }
+
+    tr {
+      
+
+      &:nth-child(odd) {
+        background: var(--white);
+      }
+
+      &:nth-child(even) {
+        background: var(--light-grey);
+      }
+    }
+
+    thead tr {
+      &:first-of-type {
+        color: var(--black);
+        background: var(--light-orange-2);
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*:root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -122,15 +663,16 @@ code {
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-}
+}*/
 
+
+
+/*
 
 .big-card-container {
   display: flex;
   justify-content: space-between;
-  /* Separa los 3 bloques */
   align-items: center;
-  /* Los centra verticalmente */
   padding: 2rem;
   border-radius: 20px;
   min-width: 500px;
@@ -140,7 +682,6 @@ code {
 .layout-center,
 .layout-right {
   flex: 1;
-  /* Todos ocupan el mismo ancho */
 }
 
 .layout-left {
@@ -161,3 +702,5 @@ code {
   font-weight: bold;
   margin: 0;
 }
+
+*/

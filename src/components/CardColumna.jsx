@@ -5,18 +5,18 @@ function CardColumna({ hora, temperatura, weatherCode, humedad }) {
   const iconUrl = getWeatherIconUrl(weatherInfo.icon);
 
   return (
-    <div className="card-columna">
-      <p className="hora">{hora}</p>
-      <div className="icono">
+    <div className="column-card">
+      <p className="hour">{hora}</p>
+      <div className="icon">
         <img
           src={iconUrl}
           alt={weatherInfo.label}
           title={weatherInfo.label}
         />
       </div>
-      <p className="temperatura">{temperatura}°C</p>
+      <p className="temperature">{temperatura}°C</p>
       {humedad !== undefined && (
-        <p className="humedad">{humedad}%</p>
+        <p className="humidity">{humedad}%</p>
       )}
     </div>
   );

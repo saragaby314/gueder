@@ -30,10 +30,10 @@ function Polen({ lat = 43.263, lon = -2.935, city = 'Bilbao' }) {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="polen-container">
-      <section className="polen-actual">
-        <h2>Polen ahora en {city}</h2>
-        <p className="polen-time">
+    <div className="pollen-container">
+      <section className="current-pollen">
+        <h2>Estimación actual en {city}</h2>
+        <p className="pollen-time">
           {new Date(current.time).toLocaleString('es-ES', {
             day: 'numeric',
             month: 'long',
@@ -42,38 +42,38 @@ function Polen({ lat = 43.263, lon = -2.935, city = 'Bilbao' }) {
           })}
         </p>
         
-        <div className="polen-grid">
-          <div className="polen-card">
+        <div className="pollen-grid">
+          <div className="pollen-card">
             <h3>Aliso</h3>
             <p className="value">{current.alder_pollen} granos/m³</p>
             <p className="level">{getPolen(current.alder_pollen)}</p>
           </div>
           
-          <div className="polen-card">
+          <div className="pollen-card">
             <h3>Abedul</h3>
             <p className="value">{current.birch_pollen} granos/m³</p>
             <p className="level">{getPolen(current.birch_pollen)}</p>
           </div>
           
-          <div className="polen-card">
+          <div className="pollen-card">
             <h3>Hierba</h3>
             <p className="value">{current.grass_pollen} granos/m³</p>
             <p className="level">{getPolen(current.grass_pollen)}</p>
           </div>
           
-          <div className="polen-card">
+          <div className="pollen-card">
             <h3>Artemisa</h3>
             <p className="value">{current.mugwort_pollen} granos/m³</p>
             <p className="level">{getPolen(current.mugwort_pollen)}</p>
           </div>
           
-          <div className="polen-card">
+          <div className="pollen-card">
             <h3>Olivo</h3>
             <p className="value">{current.olive_pollen} granos/m³</p>
             <p className="level">{getPolen(current.olive_pollen)}</p>
           </div>
           
-          <div className="polen-card">
+          <div className="pollen-card">
             <h3>Ambrosía</h3>
             <p className="value">{current.ragweed_pollen} granos/m³</p>
             <p className="level">{getPolen(current.ragweed_pollen)}</p>
@@ -81,10 +81,10 @@ function Polen({ lat = 43.263, lon = -2.935, city = 'Bilbao' }) {
         </div>
       </section>
 
-      <section className="polen-forecast">
+      <section className="pollen-forecast">
         <h2>Pronóstico de polen (24 horas)</h2>
         
-        <table className="polen-table">
+        <table className="pollen-table">
           <thead>
             <tr>
               <th>Hora</th>

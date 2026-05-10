@@ -6,13 +6,12 @@ const WeatherIcon = ({ code }) => {
     const iconUrl = getWeatherIconUrl(info.icon);
 
     return (
-        <div className="weather-icon-container" style={{ textAlign: 'left' }}>
+        <div className="weather-icon-container">
             <img
                 src={iconUrl}
                 alt={info.label}
-                style={{ width: '64px', height: '64px' }}
             />
-            <p className="weather-label" style={{ margin: 0, fontSize: '0.9rem' }}>
+            <p className="weather-label">
                 {info.label}
             </p>
         </div>
