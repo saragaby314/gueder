@@ -26,20 +26,22 @@ const BigCard = ({ lat, lon, children }) => {
     if (!data) return <div>No hay datos disponibles</div>;
 
     return (
-        <div className="big-card-container">
-            <div className="layout-left">
-                <WeatherIcon code={data.current.weather_code} />
-            </div>
+        <div className="weather-container">
+            <div>
+                <div className="layout-left">
+                    <WeatherIcon code={data.current.weather_code} />
+                </div>
 
-            <div className="layout-center">
-                <Temperature
-                    valor={data.current.temperature_2m}
-                    unidad={data.current_units.temperature_2m}
-                />
-            </div>
+                <div className="layout-center">
+                    <Temperature
+                        valor={data.current.temperature_2m}
+                        unidad={data.current_units.temperature_2m}
+                    />
+                </div>
 
-            <div className="layout-right">
-                <DateDisplay apiDate={data.current.time} />
+                <div className="layout-right">
+                    <DateDisplay apiDate={data.current.time} />
+                </div>
             </div>
 
             {children}

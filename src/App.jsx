@@ -15,32 +15,35 @@ function App() {
 
   return (
     <div className="app-main">
-      <Header />
-      <h1>Güeder</h1>
+      <header>
+        <Header />
+      </header>
 
-      {/* 2. BOTÓN PARA ACTUALIZAR  */}
-      <button onClick={getCurrentLocation} className="gps-button">
-        {loading ? 'Localizando...' : 'Usar mi ubicación'}
-      </button>
+      <h1>Anticípate al clima</h1>
 
-      {/* 3. PASAMOS LAS COORDENADAS A BIGCARD */}
+      {/* 1. PASAMOS LAS COORDENADAS A BIGCARD */}
       {/* Usamos coords.lat y coords.lon que vienen del hook */}
       {coords ? (
         <>
-          <div className="button-group">
+          <nav className="button-group">
             <Button onClick={() => setEleccion("tiempo")}>Tiempo</Button>
             <Button onClick={() => setEleccion("polen")}>Polen</Button>
             <Button onClick={() => setEleccion("calidad")}>Calidad del Aire</Button>
-          </div>
 
-          <div className="content-area">
+            {/* 2. BOTÓN PARA ACTUALIZAR  */}
+            <button onClick={getCurrentLocation} className="gps-button">
+              {loading ? 'Localizando...' : 'Mi ubicación'}
+            </button>
+          </nav>
+
+          <section className="content-area">
             {eleccion === "tiempo" && <BigCard lat={coords.lat} lon={coords.lon} >
               <CardAlargada lat={coords.lat} lon={coords.lon} />
             </BigCard>}
 
             {eleccion === "polen" && <Polen lat={coords.lat} lon={coords.lon} city={coords.city} />}
             {eleccion === "calidad" && <Calidad lat={coords.lat} lon={coords.lon} />}
-          </div>
+          </section>
         </>
       ) : (
         !loading && <p>Por favor, activa la ubicación para ver los datos.</p>
