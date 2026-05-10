@@ -23,7 +23,6 @@
   --orange: #cf7500;
   --light-orange-1: #fec57a;
   --light-orange-2: #f7b155;
-
 }
 
 /* =============== GLOBAL STYLES =============== */
@@ -118,7 +117,7 @@ section {
     }
 
     .column-card p.temperature {
-      color: var(--light-orange-1)!important;
+      color: var(--light-orange-1) !important;
     }
   }
 }
@@ -134,20 +133,20 @@ section {
       color: var(--white) !important;
 
       &:nth-child(odd) {
-        background: var(--dark-grey)!important;
+        background: var(--dark-grey) !important;
       }
 
       &:nth-child(even) {
-        background: var(--black)!important;
+        background: var(--black) !important;
       }
     }
 
     thead tr {
-        &:first-of-type {
-          color: var(--black)!important;
-          background: var(--light-orange-2)!important;
-        }
+      &:first-of-type {
+        color: var(--black) !important;
+        background: var(--light-orange-2) !important;
       }
+    }
   }
 }
 
@@ -195,7 +194,6 @@ header div {
         background-image: url(../src/assets/moon.svg);
         background-size: cover;
         transition: all 0.3s ease;
-
       }
     }
 
@@ -277,6 +275,51 @@ nav {
       transform: translateX(0.95rem) scale(calc(1 / 1.2));
     }
   }
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    padding: 0.4rem;
+
+    button {
+      padding: 1rem;
+      font-size: 0.9rem !important;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+
+    flex-wrap: wrap;
+    border: none;
+
+    button {
+      width: 43%;
+      margin: 0 0.5rem 1rem;
+      border: 0.2rem solid var(--grey);
+      border-radius: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dark-mode nav {
+    gap: 0.5rem;
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .dark-mode nav {
+    border: none;
+
+    button {
+      border: 0.2rem solid var(--light-orange-2);
+    }
+  }
 }
 
 /* =============== MAIN WEATHER CONTAINER =============== */
@@ -286,7 +329,6 @@ nav {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-    height: 12rem;
     margin-bottom: 2rem;
     padding: 0 2rem;
   }
@@ -352,6 +394,7 @@ nav {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 1rem;
 
       img {
         width: 5rem;
@@ -389,6 +432,55 @@ nav {
       }
     }
   }
+
+  @media (max-width: 768px) {
+
+    >div:nth-of-type(1) {
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 0;
+      margin-bottom: 3rem;
+
+      .layout-left {
+        width: 45%;
+
+        img {
+          max-width: 100%;
+        }
+
+        p {
+          font-size: 1rem !important;
+        }
+      }
+
+      .layout-center {
+        width: 45%;
+        margin: 0 0 0 auto;
+        padding: 0 1rem 0 0;
+      }
+
+      .layout-right {
+        width: 100%;
+        text-align: center;
+        order: -1;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    >div:nth-of-type(1) {
+
+      .layout-left,
+      .layout-center {
+        width: 100%;
+      }
+
+      .layout-center {
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
 }
 
 /* =============== MAIN POLLEN CONTAINER =============== */
@@ -407,7 +499,6 @@ nav {
       width: 65%;
       padding-left: 1rem;
       text-align: left;
-
     }
 
     h2~p {
@@ -481,6 +572,24 @@ nav {
       }
     }
   }
+
+  @media (max-width: 700px) {
+    .pollen-grid {
+      width: 100%;
+
+      .pollen-card {
+        width: 45%;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .pollen-grid {
+      .pollen-card {
+        width: 100%;
+      }
+    }
+  }
 }
 
 /* =============== MAIN AIR QUALITY CONTAINER =============== */
@@ -502,8 +611,6 @@ nav {
     }
 
     tr {
-      
-
       &:nth-child(odd) {
         background: var(--white);
       }
@@ -520,187 +627,4 @@ nav {
       }
     }
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-}
-
-.big-card-container {
-  border: 2px solid #333;
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-}*/
-
-
-
-/*
-
-.big-card-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
-  border-radius: 20px;
-  min-width: 500px;
-}
-
-.layout-left,
-.layout-center,
-.layout-right {
-  flex: 1;
-}
-
-.layout-left {
-  text-align: left;
-}
-
-.layout-center {
-  text-align: center;
-  font-size: 3rem;
-}
-
-.layout-right {
-  text-align: right;
-}
-
-.day-name {
-  text-transform: capitalize;
-  font-weight: bold;
-  margin: 0;
-}
-
-*/
